@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+dist/
+
+# Internal notes, verification records and live-check scripts: kept in local checkouts for the people and coding
+# agents who work on this repository, never published
+/internal/
+/docs/verification-report.md
+/AGENTS.md
+/CLAUDE.md
+/CLAUDE.local.md
+.env
+.env.*
+*.p8
+*.pem

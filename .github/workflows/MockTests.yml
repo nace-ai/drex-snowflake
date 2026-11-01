@@ -1,0 +1,34 @@
+#
+# Runs the handler's tests against the mock Drex API (tests/mock/drex_mock.py). No Snowflake account and no key needed.
+#
+name: Mock Tests
+on:
+  # A pull request runs on its pull_request event alone, not again for the push
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  mock-tests:
+    name: pytest against the mock
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          # Snowflake's runtime for the functions (RUNTIME_VERSION in sql/setup.sql)
+          python-version: '3.12'
+
+      - name: Lint
+        run: |
+          uv run --frozen ruff check .
+          uv run --frozen ruff format --check .
+
+      - name: Test
+        run: uv run --frozen pytest -v
