@@ -22,6 +22,8 @@ probabilities back as SQL values:
 | `drex_decide(state, questions [, model])` | `OBJECT`: Drex's response body |
 | `drex_decide_image(state, images, questions [, model])` | `OBJECT`: Drex's response body, about staged images, on Drex Max |
 
+**Also from Drex:** [Drex Browser Use](https://github.com/nace-ai/drex-browser-harness-pub), an AI browser agent and MCP server. One sentence fills a DoorDash cart in 16 moves.
+
 [Getting started](#getting-started) · [Examples](#examples) · [SQL API](docs/API.md) · [Development](#development)
 
 ## Getting started
